@@ -8,12 +8,21 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String ip = in.next();
         Pattern pattern = Pattern.compile("\\b\\d\\d\\d\\.\\d\\d\\d\\.\\d\\d\\d\\.\\d\\d\\d");
+        Pattern patterna = Pattern.compile("\\b\\d\\d\\d\\.\\d\\d\\d\\.\\d\\.\\d\\d");
+        Pattern patternс = Pattern.compile("\\b\\d\\d\\d\\.\\d\\d\\d\\.\\d\\d\\.\\d\\d");
         Matcher a = pattern.matcher(ip);
-        if(a.find()){
+        Matcher b = patterna.matcher(ip);
+        if (a.find() && b.find()) {
             System.out.println("Отлично, теперь я приду к тебе домой ночью по адресу " + a.group());
+            System.out.println("Отлично, теперь я приду к тебе домой ночью по адресу " + b.group());
+        } else {
+            System.out.println("Введите по примеру ");
         }
-        else{
-            System.out.println("Введите нормально!");
+        Matcher d = patternс.matcher(ip);
+        if (d.find()) {
+            System.out.println("Отлично, теперь я приду к тебе домой ночью по адресу " + d.group());
+        } else {
+            System.out.println("Введите по примеру ");
         }
     }
 }
